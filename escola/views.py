@@ -19,12 +19,12 @@ class EstudanteViewSet(viewsets.ModelViewSet):
         return EstudanteSerializer
 
 class CursoViewSet(viewsets.ModelViewSet):
-    queryset = Curso.objects.all()
+    queryset = Curso.objects.all().order_by('id')
     # permission_classes = [DjangoModelPermissions]
     serializer_class = CursoSerializer
 
 class MatriculaViewSet(viewsets.ModelViewSet):
-    queryset = Matricula.objects.all()
+    queryset = Matricula.objects.all().order_by('id')
     permission_classes = [DjangoModelPermissions]
     serializer_class = MatriculaSerializer
     throttle_classes = [UserRateThrottle, MatriculaThrottleAnon]
